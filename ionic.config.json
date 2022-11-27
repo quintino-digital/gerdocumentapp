@@ -1,0 +1,7 @@
+{
+  "name": "gerdocumentapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
