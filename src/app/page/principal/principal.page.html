@@ -35,19 +35,21 @@
       </div>
     </div>
 
-    <ion-row class="pastas" *ngFor="let item of diretorioRaizList">
-      <ion-col size="2">
+    <ion-row class="pastas" *ngFor="let item of diretorioDTOList">
+
+      <ion-col size="2" (click)="navegarSubpasta(item.codigo)">
         <ion-img src="../../../assets/folder.png"></ion-img>
       </ion-col>
-      <ion-col size="8">
+      <ion-col size="8" (click)="navegarSubpasta(item.codigo)">
         <ion-text>
           {{item.nome}}
-          <p>{{diretorioSubpastasList.length}} Pastas</p>
+          <p>{{item.subdiretorioList.length}} Pastas</p>
         </ion-text>
       </ion-col>
       <ion-col size="2">
         <ion-icon name="ellipsis-vertical-outline"></ion-icon>
       </ion-col>
+
     </ion-row>
 
 </ion-content>

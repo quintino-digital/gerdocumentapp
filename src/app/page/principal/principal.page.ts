@@ -14,12 +14,17 @@ export class PrincipalPage implements OnInit {
 
   public diretorioSubpastasList: any = [];
 
+  public diretorioDTOList: any = [];
+
+  public diretorioDTO: any;
+
   constructor(
     private diretorioService: DiretorioService
   ) { }
 
   ngOnInit() { 
-    this.recuperarDiretoriosRaiz();
+    // this.recuperarDiretoriosRaiz();
+    this.recuperarDiretorioPrimeiroNivel();
   }
 
   public alterarFormaApresentacaoPastas() {
@@ -30,19 +35,12 @@ export class PrincipalPage implements OnInit {
     }
   }
 
-  public recuperarDiretoriosRaiz() {
-    return this.diretorioService.recuperarDiretoriosRaiz().subscribe( response => {
-      this.diretorioRaizList = response;
-      for(let index in this.diretorioRaizList) {
-        this.recuperarNumeroPastas(this.diretorioRaizList[index].codigo);
-      }
+  public recuperarDiretorioPrimeiroNivel() {
+    return this.diretorioService.recuperarDiretorioPrimeiroNivel().subscribe(response => {
+      this.diretorioDTOList = response;
     });
   }
 
-  public recuperarNumeroPastas(codigoDiretorio: string) {
-    this.diretorioService.recuperarSubdiretorios(codigoDiretorio).subscribe( response => {
-      this.diretorioSubpastasList = response;
-    });
-  }
+  public navegarSubpasta(codigoDiretorio: string) { }
 
 }

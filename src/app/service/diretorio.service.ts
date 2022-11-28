@@ -21,4 +21,8 @@ export class DiretorioService {
     return this.httpClient.get<any[]>(this.URL.concat(`/subdiretorio/${codigoDiretorio}`));
   }
 
+  public recuperarDiretorioPrimeiroNivel() : Observable<any> {
+    return this.httpClient.get<any>(this.URL.concat(`/primeiro-nivel`));
+  }
+
 }

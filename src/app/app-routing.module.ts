@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'conexao',
     loadChildren: () => import('./page/conexao/conexao.module').then( m => m.ConexaoPageModule)
   },
+  {
+    path: 'detalhe',
+    loadChildren: () => import('./page/detalhe/detalhe.module').then( m => m.DetalhePageModule)
+  },
 ];
 
 @NgModule({
