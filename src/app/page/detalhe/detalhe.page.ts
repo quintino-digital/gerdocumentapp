@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DiretorioService } from 'src/app/service/diretorio.service';
 
 @Component({
   selector: 'app-detalhe',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalhePage implements OnInit {
 
-  constructor() { }
+  public codigoDiretorio: any;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private diretorioService: DiretorioService
+  ) { }
 
   ngOnInit() {
+    this.codigoDiretorio = this.activatedRoute.snapshot.paramMap.get("codigoDiretorio");
   }
+
+
 
 }

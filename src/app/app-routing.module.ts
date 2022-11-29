@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./page/conexao/conexao.module').then( m => m.ConexaoPageModule)
   },
   {
-    path: 'detalhe',
+    path: 'detalhe/:codigoDiretorio',
     loadChildren: () => import('./page/detalhe/detalhe.module').then( m => m.DetalhePageModule)
   },
 ];

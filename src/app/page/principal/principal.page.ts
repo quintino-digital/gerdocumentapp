@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { DiretorioService } from 'src/app/service/diretorio.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class PrincipalPage implements OnInit {
   public diretorioDTO: any;
 
   constructor(
-    private diretorioService: DiretorioService
+    private diretorioService: DiretorioService,
+    private router: Router
   ) { }
 
   ngOnInit() { 
@@ -41,6 +43,8 @@ export class PrincipalPage implements OnInit {
     });
   }
 
-  public navegarSubpasta(codigoDiretorio: string) { }
+  public navegarSubpasta(codigoDiretorio: string) {
+    this.router.navigateByUrl(`/detalhe/${codigoDiretorio}`);
+  }
 
 }
