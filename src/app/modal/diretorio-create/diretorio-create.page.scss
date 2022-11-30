@@ -1,0 +1,16 @@
+.formulario {
+  margin-top: 40px;
+  ion-input {
+    border-bottom: rgb(14, 160, 80) solid 2px;
+  }
+  .botao {
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    a {
+      margin-left: 20px;
+      color: rgb(14, 160, 80);
+      cursor: pointer;
+    }
+  }
+}

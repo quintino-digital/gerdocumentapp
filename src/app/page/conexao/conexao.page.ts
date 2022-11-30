@@ -24,16 +24,16 @@ export class ConexaoPage implements OnInit {
       if (this.progress > 1) {
         setTimeout(() => {
           this.progress = 0;
-        }, 1000);
+        }, 100);
       }
-    }, 80);
+    }, 30);
     this.redirecionarPaginaPrincipal();
   }
 
   public redirecionarPaginaPrincipal() {
     setTimeout(() => {
       this.router.navigateByUrl("/principal");
-    }, 9000);
+    }, 2000);
   }
 
 }

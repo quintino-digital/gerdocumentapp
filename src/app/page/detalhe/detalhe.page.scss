@@ -1,0 +1,36 @@
+ion-header {
+  ion-icon {
+      font-size: 18px;
+  }
+  ion-toolbar {
+      ion-title {
+          font-size: 14px;
+      }
+  }
+}
+
+ion-content {
+  ion-list {
+    ion-grid {
+      ion-row {
+        display: flex;
+        align-items: center;
+        margin-top: -20px;
+        ion-col:nth-child(2) {
+          margin-top: 6px;
+          ion-text {
+            font-size: 14px;
+            p {
+              color: rgb(138, 138, 138);
+              margin-top: 10px;
+              font-size: 12px;
+            }
+          }
+        }
+        ion-col:nth-child(3) {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

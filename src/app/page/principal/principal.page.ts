@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { DiretorioService } from 'src/app/service/diretorio.service';
+import { DiretorioMenuPage } from './../../modal/diretorio-menu/diretorio-menu.page';
 
 @Component({
   selector: 'app-principal',
@@ -21,10 +23,11 @@ export class PrincipalPage implements OnInit {
 
   constructor(
     private diretorioService: DiretorioService,
-    private router: Router
+    private router: Router,
+    private modalController: ModalController
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     // this.recuperarDiretoriosRaiz();
     this.recuperarDiretorioPrimeiroNivel();
   }
@@ -38,6 +41,7 @@ export class PrincipalPage implements OnInit {
   }
 
   public recuperarDiretorioPrimeiroNivel() {
+    this.diretorioDTOList = [];
     return this.diretorioService.recuperarDiretorioPrimeiroNivel().subscribe(response => {
       this.diretorioDTOList = response;
     });
@@ -45,6 +49,18 @@ export class PrincipalPage implements OnInit {
 
   public navegarSubpasta(codigoDiretorio: string) {
     this.router.navigateByUrl(`/detalhe/${codigoDiretorio}`);
+  }
+
+  public async criarDiretorio() {
+    const modal = await this.modalController.create({
+      component: DiretorioMenuPage,
+      initialBreakpoint: 0.6
+    });
+    modal.present();
+  }
+
+  private recarregarTela() {
+    window.location.reload();
   }
 
 }

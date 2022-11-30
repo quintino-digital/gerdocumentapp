@@ -1,0 +1,13 @@
+ion-row {
+  padding: 10px;
+  ion-col:nth-child(2) {
+    margin-left: -40px;
+    font-size: 13px;
+  }
+}
+
+.divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: rgb(203, 203, 203) 0.8px solid;
+}
