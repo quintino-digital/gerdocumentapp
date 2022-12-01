@@ -16,8 +16,6 @@ export class DetalhePage implements OnInit {
 
   public arquivoDomainList: any = [];
 
-  public isApresentarAquivos: boolean = true;
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private diretorioService: DiretorioService,
@@ -33,8 +31,8 @@ export class DetalhePage implements OnInit {
   public recuperarDiretorioSegundoNivel(codigoDiretorio: string) {
     this.diretorioService.recuperarDiretorioSegundoNivel(codigoDiretorio).subscribe(response => {
       this.diretorioSecundarioList = response;
+      console.log(this.diretorioSecundarioList);
       if(this.diretorioSecundarioList.length === 0) {
-        this.isApresentarAquivos = true;
         this.arquivoService.recuperarArquivoDiretorio(codigoDiretorio).subscribe( response => {
           this.arquivoDomainList = response;
         });

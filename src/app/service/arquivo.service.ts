@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArquivoService {
 
-  private URL = "http://127.0.0.1:8082/api/v1/arquivo";
+  private URL = `${environment.base_url_gerdocument}/api/v1/arquivo`;
 
   constructor(
     private httpClient: HttpClient

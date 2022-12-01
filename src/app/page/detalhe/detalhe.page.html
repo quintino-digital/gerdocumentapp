@@ -25,48 +25,50 @@
 
 <ion-content class="ion-padding">
 
-  <ion-list *ngFor="let item of diretorioSecundarioList">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="2" (click)="recuperarDiretorioSegundoNivel(item.codigo)">
-          <ion-img src="../../../assets/folder.png"></ion-img>
-        </ion-col>
-        <ion-col size="8" (click)="recuperarDiretorioSegundoNivel(item.codigo)">
-          <ion-text>
-            {{item.nome}}
-            <p>{{item.subdiretorioList.length === 0 ? "Pasta Vazia" : item.subdiretorioList.length + " Pastas"}}</p>
-          </ion-text>
-        </ion-col>
-        <ion-col size="2">
-          <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list>
+  <ion-grid *ngFor="let item of diretorioSecundarioList">
 
-  <!-- <ion-list>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="2">
-          <i class="fa fa-file-pdf-o"></i>
-        </ion-col>
-        <ion-col size="8">
-          <ion-text>
-            A Arte da Guerra.pdf
-            <p></p>
-          </ion-text>
-        </ion-col>
-        <ion-col size="2">
-          <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list> -->
+    <ion-row>
+
+      <ion-col size="2" (click)="recuperarDiretorioSegundoNivel(item.codigo)">
+        <ion-img src="../../../assets/folder.png"></ion-img>
+      </ion-col>
+
+      <ion-col size="8" (click)="recuperarDiretorioSegundoNivel(item.codigo)">
+        <ion-text>
+          {{ item.nome }}
+          <p>{{ item.subdiretorioList.length + " Pastas" }}</p>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-grid *ngFor="let item of arquivoDomainList">
+
+    <ion-row>
+
+      <ion-col size="2">
+        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+      </ion-col>
+
+      <ion-col size="8">
+        <ion-text>
+          {{ item.nome }}
+          <p>{{ item.tamanho }} 01/12/2022</p>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
 
 </ion-content>
-
-<ion-fab horizontal="end" vertical="bottom">
-  <ion-fab-button>
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
